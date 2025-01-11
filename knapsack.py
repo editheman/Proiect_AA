@@ -43,18 +43,15 @@ def knapsack_backtracking(weights: List[int], values: List[int], capacity: int) 
         
         # Include the current item
         item = items[index]
-        print(f"Including item {item} (weight {weights[item]}, value {values[item]})")
         current_combination.append(item)
         backtrack(index + 1, current_weight + weights[item], current_value + values[item], current_combination)
         current_combination.pop()
         
         # Exclude the current item
-        print(f"Excluding item {item} (weight {weights[item]}, value {values[item]})")
         backtrack(index + 1, current_weight, current_value, current_combination)
     
     backtrack(0, 0, 0, [])
     return max_value, [items[i] for i in best_combination]
-
 
 
 
