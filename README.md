@@ -1,8 +1,8 @@
-# README.md
+# Problema Rucsacului - Knapspack Problem
 
 ## Timp de rezolvare
 
-A durat aproximativ 2 zile calendaristice pentru a implementa această soluție pentru problema rucsacului, incluzând timpul necesar pentru generarea testelor, implementarea algoritmilor și crearea automatizărilor cu Makefile. Pe parcursul dezvoltării, am utilizat Git pentru a sincroniza munca și a păstra o copie de rezervă a progresului.
+A durat aproximativ o zile calendaristice pentru a implementa această soluție pentru problema rucsacului, incluzând timpul necesar pentru generarea testelor, implementarea algoritmilor și crearea automatizărilor cu Makefile. Pe parcursul dezvoltării, am utilizat Git pentru a sincroniza munca și a păstra o copie de rezervă a progresului.
 
 > **NOTE:** Acest proces m-a ajutat să exersez utilizarea Git și să consolidez cunoștințele despre managementul proiectelor software. De asemenea, am devenit mai confortabil cu organizarea și testarea proiectelor complexe.
 
