@@ -50,6 +50,3 @@ Această arhivă conține implementarea unei soluții pentru problema rucsacului
 
 - Asigurați-vă că aveți instalat Python 3 și utilitarul `make` pe sistemul dumneavoastră.
 - Dacă întâmpinați probleme, verificați dependențele și permisiunile pentru directoarele generate.
-
-Pentru întrebări suplimentare, contactați autorul arhivei.
-
