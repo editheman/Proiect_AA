@@ -38,7 +38,7 @@ Această arhivă conține implementarea unei soluții pentru problema rucsacului
 
 1. **Algoritmi și structuri de date**:
    - Documentație standard Python: [https://docs.python.org/](https://docs.python.org/)
-   - Articole despre problema rucsacului: Wikipedia și tutoriale de programare.
+   - Articole despre problema rucsacului:[Google Knapspack Progblem](https://developers.google.com/optimization/pack/knapsack), [Geeks for Geeks](https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/), [W3Schools](https://www.w3schools.com/dsa/dsa_ref_knapsack.php).
 
 2. **Asistență AI**:
    - OpenAI ChatGPT: Pentru clarificări, sugestii și optimizarea codului. Nu s-au utilizat fragmente directe de cod fără ajustări specifice pentru acest proiect.
