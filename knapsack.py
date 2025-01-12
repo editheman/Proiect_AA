@@ -2,7 +2,7 @@ import random
 import os
 from typing import List, Tuple
 import sys
-sys.setrecursionlimit(1500)  # Setează o limită mai mare, de exemplu 1500
+sys.setrecursionlimit(1500)
 
 
 def knapsack_backtracking(weights: List[int], values: List[int], capacity: int) -> Tuple[int, List[int]]:
@@ -10,7 +10,6 @@ def knapsack_backtracking(weights: List[int], values: List[int], capacity: int) 
     max_value = 0
     best_combination = []
     
-    # Sort objects by value-to-weight ratio
     items = sorted(range(n), key=lambda i: values[i] / weights[i], reverse=True)
     
     def estimate_max_value(index, current_weight, current_value):
@@ -32,22 +31,18 @@ def knapsack_backtracking(weights: List[int], values: List[int], capacity: int) 
         if current_weight > capacity:
             return
         
-        # Update the best solution
         if current_value > max_value:
             max_value = current_value
             best_combination = current_combination[:]
         
-        # Prune branches that cannot lead to a better solution
         if index >= n or estimate_max_value(index, current_weight, current_value) <= max_value:
             return
         
-        # Include the current item
         item = items[index]
         current_combination.append(item)
         backtrack(index + 1, current_weight + weights[item], current_value + values[item], current_combination)
         current_combination.pop()
         
-        # Exclude the current item
         backtrack(index + 1, current_weight, current_value, current_combination)
     
     backtrack(0, 0, 0, [])
@@ -56,18 +51,9 @@ def knapsack_backtracking(weights: List[int], values: List[int], capacity: int) 
 
 
 def knapsack_dynamic_programming(weights: List[int], values: List[int], capacity: int) -> Tuple[int, List[int]]:
-    """
-    Rezolvă problema rucsacului folosind programarea dinamică.
-
-    :param weights: Lista cu greutățile obiectelor.
-    :param values: Lista cu valorile obiectelor.
-    :param capacity: Capacitatea maximă a rucsacului.
-    :return: Valoarea maximă și lista indicilor obiectelor selectate.
-    """
     n = len(weights)
     dp = [[0] * (capacity + 1) for _ in range(n + 1)]
 
-    # Construim matricea dp
     for i in range(1, n + 1):
         for w in range(capacity + 1):
             if weights[i - 1] <= w:
@@ -75,7 +61,6 @@ def knapsack_dynamic_programming(weights: List[int], values: List[int], capacity
             else:
                 dp[i][w] = dp[i - 1][w]
 
-    # Reconstruim soluția
     max_value = dp[n][capacity]
     selected_items = []
     w = capacity
@@ -86,36 +71,6 @@ def knapsack_dynamic_programming(weights: List[int], values: List[int], capacity
             w -= weights[i - 1]
 
     return max_value, selected_items[::-1]
-
-# def knapsack_dynamic_programming(weights: List[int], values: List[int], capacity: int) -> Tuple[int, List[int]]:
-#     """
-#     Rezolvă problema rucsacului folosind programarea dinamică, optimizată pentru utilizarea memoriei și timpului.
-
-#     :param weights: Lista cu greutățile obiectelor.
-#     :param values: Lista cu valorile obiectelor.
-#     :param capacity: Capacitatea maximă a rucsacului.
-#     :return: Valoarea maximă și lista indicilor obiectelor selectate.
-#     """
-#     n = len(weights)
-#     dp = [0] * (capacity + 1)
-
-#     # Construim matricea dp folosind un singur rând
-#     for i in range(n):
-#         for w in range(capacity, weights[i] - 1, -1):
-#             dp[w] = max(dp[w], dp[w - weights[i]] + values[i])
-
-#     # Reconstruim soluția
-#     max_value = dp[capacity]
-#     selected_items = []
-#     w = capacity
-
-#     for i in range(n - 1, -1, -1):
-#         if w >= weights[i] and dp[w] == dp[w - weights[i]] + values[i]:
-#             selected_items.append(i)
-#             w -= weights[i]
-
-#     return max_value, selected_items[::-1]
-
 
 
 def knapsack_greedy(weights: List[int], values: List[int], capacity: int) -> Tuple[int, List[int]]:
